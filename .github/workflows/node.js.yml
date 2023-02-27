@@ -26,7 +26,12 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: "cd /reactapp"
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+    - name: Setup Node
+      working-directory: ./reactapp
+      run: npm ci
+    - name: Build front
+      working-directory: ./reactapp
+      run: npm run build --if-present
+    - name: Run frontend tests
+      working-directory: ./reactapp
+      run: npm test
