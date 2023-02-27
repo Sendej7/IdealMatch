@@ -22,11 +22,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
-      working-directory: ./reactapp
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        cache-dependency-path: ./reactapp/package-lock.json
     - name: Setup Node
       working-directory: ./reactapp
       run: npm ci
