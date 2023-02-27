@@ -5,9 +5,10 @@ name: .NET
 
 on:
   push:
-    branches: [ "dev" ]
+    branches:
+      - master
   pull_request:
-    branches: [ "dev" ]
+    types: [opened, synchronize, reopened]
 
 jobs:
   build:
