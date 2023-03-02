@@ -1,10 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using webapi.Entities;
 using webapi.Models;
 namespace webapi.Helpers
 {
     public class DataContext : DbContext
     {
-        protected readonly IConfiguration Configuration;
+        public DbSet<Account> Accounts { get; set; }
+
+        private readonly IConfiguration Configuration;
 
         public DataContext(IConfiguration configuration)
         {
@@ -13,10 +17,7 @@ namespace webapi.Helpers
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            // connect to sql server database
             optionsBuilder.UseSqlServer(Configuration.GetConnectionString("WebApiDatabase"));
         }
-
-        public DbSet<User> Users { get; set; }
     }
 }

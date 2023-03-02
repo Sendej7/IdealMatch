@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using MongoDB.Driver.Core.Operations;
+using webapi.Entities;
 using webapi.Models;
-using webapi.Models.Users;
+using webapi.Models.Accounts;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace webapi.Helpers
@@ -10,20 +10,22 @@ namespace webapi.Helpers
     {
         public AutoMapperProfile()
         {
-            // User -> AuthenticateResponse
-            CreateMap<User, AuthenticateResponse>();
+            CreateMap<Account, AccountResponse>();
 
-            // RegisterRequest -> User
-            CreateMap<RegisterRequest, User>();
+            CreateMap<Account, AuthenticateResponse>();
 
-            // UpdateRequest -> User
-            CreateMap<Models.Users.UpdateRequest, User>()
+            CreateMap<RegisterRequest, Account>();
+
+            CreateMap<CreateRequest, Account>();
+
+            CreateMap<UpdateRequest, Account>()
                 .ForAllMembers(x => x.Condition(
                     (src, dest, prop) =>
                     {
-                        // ignore null & empty string properties
                         if (prop == null) return false;
                         if (prop.GetType() == typeof(string) && string.IsNullOrEmpty((string)prop)) return false;
+
+                        if (x.DestinationMember.Name == "Role" && src.Role == null) return false;
 
                         return true;
                     }
