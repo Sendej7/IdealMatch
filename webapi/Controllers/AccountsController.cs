@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using System.Data;
+using System.Net;
 using webapi.Authorization;
 using webapi.Entities;
 using webapi.Healpers;
@@ -159,8 +160,9 @@ namespace webapi.Controllers
             var cookieOptions = new CookieOptions
             {
                 HttpOnly = true,
-                Expires = DateTime.UtcNow.AddDays(7)
-            };
+                Expires = DateTime.UtcNow.AddDays(7),
+                Secure = true
+        };
             Response.Cookies.Append("refreshToken", token, cookieOptions);
         }
 
