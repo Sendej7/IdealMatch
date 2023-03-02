@@ -1,7 +1,3 @@
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization;
-using MongoDB.Bson.Serialization.Serializers;
-using MongoDB.Driver;
 using webapi.Authorization;
 using webapi.Healpers;
 using webapi.Helpers;
@@ -20,7 +16,7 @@ builder.Services.AddCors();
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 builder.Services.AddScoped<IJwtUtils, JwtUtils>();
-builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
