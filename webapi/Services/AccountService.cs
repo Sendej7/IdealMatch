@@ -338,7 +338,7 @@ namespace webapi.Services
             // recursively traverse the refresh token chain and ensure all descendants are revoked
             if (!string.IsNullOrEmpty(refreshToken.ReplacedByToken))
             {
-                var childToken = account.RefreshTokens.SingleOrDefault(x => x.Token == refreshToken.ReplacedByToken);
+                var childToken = account.RefreshTokens.SingleOrDefault(x => x.Token == refreshToken.ReplacedByToken) ?? throw new InvalidOperationException();
                 if (childToken.IsActive)
                     revokeRefreshToken(childToken, ipAddress, reason);
                 else
