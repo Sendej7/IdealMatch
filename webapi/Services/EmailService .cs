@@ -19,6 +19,8 @@ namespace webapi.Services
 
         public void Send(string to, string subject, string html, string from = null)
         {
+            // At the current time, we do not use email verification 
+            /*
             // create message
             var email = new MimeMessage();
             email.From.Add(MailboxAddress.Parse(from ?? _appSettings.EmailFrom));
@@ -32,6 +34,7 @@ namespace webapi.Services
             smtp.Authenticate(_appSettings.SmtpUser, _appSettings.SmtpPass);
             smtp.Send(email);
             smtp.Disconnect(true);
+            */
         }
     }
 }

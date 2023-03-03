@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using webapi.Entities;
+using webapi.Entities.Enums;
 
 namespace webapi.Models.Accounts
 {
@@ -10,10 +10,9 @@ namespace webapi.Models.Accounts
         private string _role;
         private string _email;
 
-        public string Title { get; set; }
         public string FirstName { get; set; }
-        public string LastName { get; set; }
-
+        public DateTime DateOfBirth { get; set; }
+        public ShowMe ShowMe { get; set; }
         [EnumDataType(typeof(Role))]
         public string Role
         {

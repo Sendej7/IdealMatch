@@ -20,8 +20,8 @@ namespace WebApi.Migrations
             modelBuilder.Entity("WebApi.Entities.Account", b =>
             {
                 b.Property<int>("Id")
-                    .ValueGeneratedOnAdd()
-                    .HasColumnType("INTEGER");
+                   .ValueGeneratedOnAdd()
+                   .HasColumnType("INTEGER");
 
                 b.Property<bool>("AcceptTerms")
                     .HasColumnType("INTEGER");
@@ -35,7 +35,7 @@ namespace WebApi.Migrations
                 b.Property<string>("FirstName")
                     .HasColumnType("TEXT");
 
-                b.Property<string>("LastName")
+                b.Property<DateTime>("DateOfBirth")
                     .HasColumnType("TEXT");
 
                 b.Property<string>("PasswordHash")
@@ -53,8 +53,11 @@ namespace WebApi.Migrations
                 b.Property<int>("Role")
                     .HasColumnType("INTEGER");
 
-                b.Property<string>("Title")
-                    .HasColumnType("TEXT");
+                b.Property<int>("Gender")
+                    .HasColumnType("INTEGER");
+
+                b.Property<int>("ShowMe")
+                    .HasColumnType("INTEGER");
 
                 b.Property<DateTime?>("Updated")
                     .HasColumnType("TEXT");

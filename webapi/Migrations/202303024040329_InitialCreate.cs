@@ -13,22 +13,23 @@ namespace WebApi.Migrations
                 name: "Accounts",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Title = table.Column<string>(type: "TEXT", nullable: true),
-                    FirstName = table.Column<string>(type: "TEXT", nullable: true),
-                    LastName = table.Column<string>(type: "TEXT", nullable: true),
-                    Email = table.Column<string>(type: "TEXT", nullable: true),
-                    PasswordHash = table.Column<string>(type: "TEXT", nullable: true),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FirstName = table.Column<string>(type: "varchar(max)", nullable: true),
+                    DateOfBirth = table.Column<DateTime>(type: "DateTime", nullable: true),
+                    Gender = table.Column<int>(type: "INTEGER", nullable: false),
+                    ShowMe = table.Column<int>(type: "INTEGER", nullable: false),
+                    Email = table.Column<string>(type: "varchar(max)", nullable: true),
+                    PasswordHash = table.Column<string>(type: "varchar(max)", nullable: true),
                     AcceptTerms = table.Column<bool>(type: "INTEGER", nullable: false),
                     Role = table.Column<int>(type: "INTEGER", nullable: false),
-                    VerificationToken = table.Column<string>(type: "TEXT", nullable: true),
-                    Verified = table.Column<DateTime>(type: "TEXT", nullable: true),
-                    ResetToken = table.Column<string>(type: "TEXT", nullable: true),
-                    ResetTokenExpires = table.Column<DateTime>(type: "TEXT", nullable: true),
-                    PasswordReset = table.Column<DateTime>(type: "TEXT", nullable: true),
-                    Created = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    Updated = table.Column<DateTime>(type: "TEXT", nullable: true)
+                    VerificationToken = table.Column<string>(type: "varchar(max)", nullable: true),
+                    Verified = table.Column<DateTime>(type: "DateTime", nullable: true),
+                    ResetToken = table.Column<string>(type: "varchar(max)", nullable: true),
+                    ResetTokenExpires = table.Column<DateTime>(type: "DateTime", nullable: true),
+                    PasswordReset = table.Column<DateTime>(type: "DateTime", nullable: true),
+                    Created = table.Column<DateTime>(type: "DateTime", nullable: false),
+                    Updated = table.Column<DateTime>(type: "DateTime", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -39,17 +40,17 @@ namespace WebApi.Migrations
                 name: "RefreshToken",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     AccountId = table.Column<int>(type: "INTEGER", nullable: false),
-                    Token = table.Column<string>(type: "TEXT", nullable: true),
-                    Expires = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    Created = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    CreatedByIp = table.Column<string>(type: "TEXT", nullable: true),
-                    Revoked = table.Column<DateTime>(type: "TEXT", nullable: true),
-                    RevokedByIp = table.Column<string>(type: "TEXT", nullable: true),
-                    ReplacedByToken = table.Column<string>(type: "TEXT", nullable: true),
-                    ReasonRevoked = table.Column<string>(type: "TEXT", nullable: true)
+                    Token = table.Column<string>(type: "varchar(max)", nullable: true),
+                    Expires = table.Column<DateTime>(type: "DateTime", nullable: false),
+                    Created = table.Column<DateTime>(type: "DateTime", nullable: false),
+                    CreatedByIp = table.Column<string>(type: "varchar(max)", nullable: true),
+                    Revoked = table.Column<DateTime>(type: "DateTime", nullable: true),
+                    RevokedByIp = table.Column<string>(type: "varchar(max)", nullable: true),
+                    ReplacedByToken = table.Column<string>(type: "varchar(max)", nullable: true),
+                    ReasonRevoked = table.Column<string>(type: "varchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

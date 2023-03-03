@@ -1,18 +1,20 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using webapi.Entities.Enums;
 
 namespace webapi.Models.Accounts
 {
     public class RegisterRequest
     {
-        [Required]
-        public string Title { get; set; }
 
         [Required]
         public string FirstName { get; set; }
 
         [Required]
-        public string LastName { get; set; }
-
+        public DateTime DateOfBirth { get; set; }
+        [Required]
+        public Gender Gender { get; set; }
+        [Required]
+        public ShowMe ShowMe { get; set; }
         [Required]
         [EmailAddress]
         public string Email { get; set; }

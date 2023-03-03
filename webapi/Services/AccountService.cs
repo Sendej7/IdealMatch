@@ -9,6 +9,7 @@ using System.Security.Cryptography;
 using System.Text;
 using webapi.Authorization;
 using webapi.Entities;
+using webapi.Entities.Enums;
 using webapi.Healpers;
 using webapi.Helpers;
 using webapi.Interfaces;

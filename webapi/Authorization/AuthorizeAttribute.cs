@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Data;
 using webapi.Entities;
+using webapi.Entities.Enums;
 using webapi.Models;
 
 namespace webapi.Authorization

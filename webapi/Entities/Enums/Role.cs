@@ -1,8 +1,9 @@
-﻿namespace webapi.Entities
+﻿namespace webapi.Entities.Enums
 {
     public enum Role
     {
         Admin,
+        PremiumUser,
         User
     }
 }

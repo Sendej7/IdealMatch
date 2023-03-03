@@ -5,6 +5,7 @@ using System.Data;
 using System.Net;
 using webapi.Authorization;
 using webapi.Entities;
+using webapi.Entities.Enums;
 using webapi.Healpers;
 using webapi.Interfaces;
 using webapi.Models.Accounts;

@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using webapi.Entities;
+using webapi.Entities.Enums;
 
 namespace webapi.Models.Accounts
 {
